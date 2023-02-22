@@ -1,5 +1,5 @@
 import {Schema, Prop, SchemaFactory} from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import mongoose,{ HydratedDocument } from 'mongoose';
 import { Product, ProductSchema } from './product.schema';
 
 export type SalesDocument = HydratedDocument<Sales>;
@@ -13,7 +13,7 @@ export class Sales {
     @Prop()
     buyer_name: string;
   
-    @Prop({ type: [ProductSchema], required: true })
+    @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }] })
     products: Product[];
   
     @Prop({ type: [Number], required: true })
@@ -29,7 +29,7 @@ export class Sales {
     get total(): number {
         let total = 0;
         for (let i = 0; i < this.products.length; i++) {
-            total += this.products[i].price * this.quantities[i];
+            total += +this.products[i].price * this.quantities[i];
         }
         return total;
     }

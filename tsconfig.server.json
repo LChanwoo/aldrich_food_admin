@@ -3,14 +3,27 @@
   "compilerOptions": {
     "outDir": ".next/production-server",
     "declaration": true,
-    "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "isolatedModules": false,
     "noEmit": false,
-    "allowJs": false
+    "allowJs": false,
+    "removeComments": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "strictPropertyInitialization": false
+
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules"]
