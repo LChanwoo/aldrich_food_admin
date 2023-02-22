@@ -31,9 +31,10 @@ export class AppController {
     return {};
   }
 
-  @Render('about')
-  @Get('/about')
+  @Get('api/one')
   public about() {
-    return {};
+    return { message: 'Hello World!' };
   }
+
+  
 }
