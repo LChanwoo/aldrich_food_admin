@@ -13,6 +13,24 @@ export class AppController {
     return {};
   }
 
+  @Render('admin/tables')
+  @Get('/admin/tables')
+  public tables() {
+    return {};
+  }
+
+  @Render('auth/login')
+  @Get('/auth/login')
+  public login() {
+    return {};
+  }
+
+  @Render('auth/register')
+  @Get('/auth/register')
+  public register() {
+    return {};
+  }
+
   @Render('about')
   @Get('/about')
   public about() {
