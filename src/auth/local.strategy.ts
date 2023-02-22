@@ -10,18 +10,16 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
   ) {
     super(
       super({
-        usernameField: 'credential',
+        usernameField: 'email',
         passwordField: 'password',
-    });
-    );
+    })
+    )
   }
 
-  async validate(credential:string ,password : string, done: any,){
+  async validate(email:string ,password : string, done: any,){
     try{
-        const user = await this.authService.getGooglePayload(credential);
-        return user;
+      return true
     }catch(err){
-        logger.error(err);
         return false;
     }
   }
