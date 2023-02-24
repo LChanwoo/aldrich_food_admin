@@ -7,13 +7,18 @@ export default function CardLineChart() {
       type: "line",
       data: {
         labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
+          "12분전",
+          "11분전",
+          "10분전",
+          "9분전",
+          "8분전",
+          "7분전",
+          "6분전",
+          "5분전",
+          "4분전",
+          "3분전",
+          "2분전",
+          "1분전",
         ],
         datasets: [
           {

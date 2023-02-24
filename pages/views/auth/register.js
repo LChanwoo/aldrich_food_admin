@@ -3,8 +3,24 @@ import React from "react";
 // layout for page
 
 import Auth from "layouts/Auth.js";
-
+import axios from "axios";
 export default function Register() {
+
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("You clicked submit.");
+    const user = {
+      name,
+      email,
+      password,
+    };
+    const result = axios.post("/api/user", user);
+    
+  };
+
   return (
     <>
       <div className="container mx-auto px-4 h-full">
@@ -28,6 +44,9 @@ export default function Register() {
                       type="email"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Name"
+                      onChange={(e) => {
+                        setName(e.target.value);
+                      }}
                     />
                   </div>
 
@@ -42,6 +61,9 @@ export default function Register() {
                       type="email"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Email"
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
                     />
                   </div>
 
@@ -56,6 +78,9 @@ export default function Register() {
                       type="password"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
                     />
                   </div>
 
@@ -83,6 +108,7 @@ export default function Register() {
                     <button
                       className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                       type="button"
+                      onClick={handleSubmit}
                     >
                       Create Account
                     </button>

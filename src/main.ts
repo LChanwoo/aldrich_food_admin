@@ -5,7 +5,16 @@ import passport from 'passport';
 import cookieParser from 'cookie-parser';
 import path, { join } from 'path';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import { Transport } from '@nestjs/microservices';
 async function bootstrap() {
+  // const microapp = await NestFactory.createMicroservice(AppModule, {
+  //   transport: Transport.REDIS,
+  //   options: {
+  //     host: 'localhost',
+  //     port: 6379,
+  //   },
+  // });
+
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.use(session({
     secret: "secret",
@@ -29,7 +38,7 @@ async function bootstrap() {
   app.useStaticAssets(join(__dirname, '..', 'public'));
   app.use(passport.initialize());
   app.use(passport.session());
-  await app.listen(3000);
+  await app.listen(3500);
 }
 
 bootstrap();

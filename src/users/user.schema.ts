@@ -7,7 +7,7 @@ export type UserDocument = HydratedDocument<User>;
 @Schema()
 export class User {
 
-    _id: string;
+    _id?: string;
 
     @Prop()
     email: string;
@@ -18,11 +18,11 @@ export class User {
     @Prop()
     password: string;
     
-    @Prop()
-    thumbnail: string;
+    @Prop({ default: "/img/team-1-800x800.jpg" })
+    thumbnail?: string;
 
     @Prop({ default: Date.now })
-    createdAt: Date;
+    createdAt?: Date;
 
     @Prop()
     deletedAt?: Date;
