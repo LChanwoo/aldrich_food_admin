@@ -21,8 +21,8 @@ export class AppController {
   @Get('/admin/tables2')
   public async tables() {
     console.log("얍삐")
-    // const coinPrice = await this.cacheManager.get("mmprice")
-    // return { data:coinPrice };
+    const coinPrice = await this.cacheManager.get("mmprice")
+    return { data:coinPrice };
     return {data:"ss"};
   }
 

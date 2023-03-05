@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import React, { useRef, useEffect } from 'react';
 
 
@@ -10,18 +10,17 @@ function formatDate(date) {
   }
 
 export default  function CandlestickChart ({cdata}) {
-    console.log(cdata)
     const data=cdata.mmPrice[0];
     const canvasRef = useRef();
     const candlestickCtxRef1 = useRef(null);
     const candlestickCtxRef2 = useRef(null);
     const candlesticks = [];
     useEffect(() => {
-      drawCandlestickChart();
-      
-      return () => window.removeEventListener('resize', drawCandlestickChart);
+        drawCandlestickChart();
+        
+        return () => window.removeEventListener('resize', drawCandlestickChart);
     }, []);
-  
+
     const drawCandlestickChart = () => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
@@ -103,5 +102,5 @@ export default  function CandlestickChart ({cdata}) {
         <div style={{ width: '100%', height: '500px' }}>
             <canvas ref={canvasRef} width="1900" height="600" style={{ maxWidth: '100%', maxHeight: '100%' }} />
         </div>
-      );
+    );
 };

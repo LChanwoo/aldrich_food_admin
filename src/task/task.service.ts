@@ -9,9 +9,10 @@ export class TaskService {
         @Inject(CACHE_MANAGER) private cacheManager: Cache
     ) { }
 
-    @Cron('1 0 * * * ')
+    // @Cron('0 1 0 * * * ')
+    @Cron('0 */1 * * * * ')
     async getCoinPricehr() {
-        console.log("3분지남, axios 가즈아ㅏㅏㅏ")
+        console.log("1분지남, axios 가즈아ㅏㅏㅏ")
         const response = await axios.get('https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=30',{
             headers: {
                 Authorization : "Apikey b3b6556a3ed262a12d39414d6448d12e0db39d4c697cf14c9e0b5cea2f311e23"
